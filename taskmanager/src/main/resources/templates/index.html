@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>navigatie</title>
+</head>
+<body>
+<a href="?lang=en">English</a>
+<a href="?lang=nl">Nederlands</a>
+<a href="/tasks"  th:text="#{Tasks}" >Tasks</a>
+<a href="/tasks/new" th:text="#{NewTasks}">New Task</a>
+<a href="/" th:text="#{Home}">Home</a>
+</body>
+</html>

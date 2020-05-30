@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tasks</title>
+</head>
+<body>
+<h2 th:text="#{NewTasks}" >New Task</h2>
+<form th:method="post" th:action="@{'/tasks/' + ${task.id} + '/sub/create'}" th:object="${task}">
+    <div>
+        <label for="title" th:text="#{Titel}">Title: </label>
+        <input type="text" th:field="*{titel}">
+        <p th:errors="*{titel}"></p>
+    </div>
+    <div>
+        <label for="description" th:text="#{Description}">Description: </label>
+        <input type="text" th:field="*{description}">
+        <p th:errors="*{description}"></p>
+    </div>
+    <input type="submit" value="submit">
+</form>
+</body>
+</html>
