@@ -32,9 +32,10 @@ public class TaskServiceImpl implements TaskService{
     }
 
     @Override
-    public void addTask(Taskdto taskdto){
+    public Taskdto addTask(Taskdto taskdto){
         Task task = convertToTask(taskdto);
-        repository.save(task);
+        task = repository.save(task);
+        return convert(task);
     }
 
     @Override
@@ -60,10 +61,10 @@ public class TaskServiceImpl implements TaskService{
 
     @Override
     public Taskdto updateTask(Taskdto taskdto) {
-        Task task = convertToTask(taskdto);
+        //Task task = convertToTask(taskdto);
         repository.deleteById(taskdto.getId());
-        task = repository.save(task);
-        return convert(task);
+        Taskdto task = addTask(taskdto);
+        return task;
     }
 
     @Override
